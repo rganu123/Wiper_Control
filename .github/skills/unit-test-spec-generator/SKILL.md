@@ -15,7 +15,7 @@ Act as an embedded-software unit-test designer. Turn one design document into a 
 - Default output: `docs/test-specs/<design-file-stem>-unit-tests.csv`, relative to the workspace root. Ask before replacing an existing specification.
 - Include pure calculations, decisions, state transitions, software flags, configuration handling, and timeout logic driven by a fake clock.
 - Exclude hardware timing, WCET measurement, electrical outputs, physical motor movement, thermal-model validation, driver compatibility, integration and HIL/vehicle behavior. Record excluded requirements as `NotApplicable` rows with a reason; never claim they were unit-tested.
-- Do not edit the design, source code, Jira, or existing verification IDs. Use specification-local test IDs prefixed `UT-`, not repository `TC-` IDs.
+- Do not edit the design, source code, Jira requirement fields, or existing verification IDs. When invoked by a delivery agent, only user-authorized Jira assignment, status and phase comments are permitted under [Jira Story Progress Policy](../../instructions/jira-story-progress.instructions.md). Use specification-local test IDs prefixed `UT-`, not repository `TC-` IDs.
 
 ## Workflow
 1. Read the selected design and identify its defined requirement and architecture IDs. List the logical units, observable outputs, external collaborators, initial state and calibration dependencies. Use design-defined `ARC-nnn` IDs as unit references; do not invent APIs or logical behavior absent from the design.

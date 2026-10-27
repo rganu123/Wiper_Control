@@ -19,7 +19,16 @@ In scope:
 Out of scope:
 - Mechanical linkage and motor design
 - Rain sensor optics and internal sensor algorithms
-- Source code implementation (design documents only)
+- Source code implementation except for explicitly requested, story-scoped unit-test automation and TDD implementation under the rules below
+
+Story-scoped testing and implementation exception:
+- Design authoring remains design-only. Do not generate production code during requirement analysis or design review.
+- When explicitly requested, the Unit Test Spec Writer may create CSV specifications from the story design using the unit-test-spec-generator skill.
+- The Unit Test Automation agent may create unit tests, test fixtures, mocks and test-only runner configuration from a validated CSV specification. It must not create or modify production implementation, including placeholder implementations.
+- The TDD Implementation agent may create or modify production code for the requested story using the approved design and validated CSV specification. First demonstrate a failing test, implement the smallest behavior needed, rerun the tests, then refactor while keeping them green.
+- Reuse the existing language, framework, paths and toolchain. If absent or unspecified, ask before choosing them or scaffolding a project. Do not infer firmware implementation from the Python tooling used for CSV validation.
+- Keep tests traceable to CSV test IDs and design requirements. Do not weaken assertions, change approved expected results, skip failing tests, or mock the unit under test to obtain a green result. Report unresolved design decisions and blocked cases separately.
+- Test and source files follow the approved implementation toolchain's layout rather than the design-document file map below. Do not change CI, dependencies or deployment configuration without authorization.
 
 ## 2. Standards and Conventions
 
